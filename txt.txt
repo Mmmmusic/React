@@ -1,0 +1,16 @@
+JSX：
+      className
+      htmlFor 
+      dangerouslySetInnerHTML
+      {/* */}
+
+React：
+      声明式开发(js,jq是命令式开发,大部分都是在操作DOM)
+      可以和其他框架并存
+      组件化(通过ES6的class继承React.Componet来继承组件,组件首字母大写)
+      单向数据流
+组件通信:
+      父子通信：
+            父组件通过属性向子组件传值,子组件用this.props.(数据)接收
+      子父通信：
+            父组件先向子组件传递一个方法,子组件用this.props.(数据/方法)去调用,间接的来操作父组件的数据/方法
