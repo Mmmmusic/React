@@ -5,7 +5,10 @@ import React,{Component,Fragment} from 'react';
 
 // 引入组件
 import TodoItem from './TodoItem';
+<<<<<<< HEAD
 import Test from './test';
+=======
+>>>>>>> e6d8700b5b0662a24840e42d294faf468ecb2bc5
 
 class TodoList extends Component{
   // 定义数据
@@ -23,7 +26,10 @@ class TodoList extends Component{
     this.del = this.del.bind(this);
 
     // state负责存储组件里的数据
+<<<<<<< HEAD
     // 当组件的state或者props发生改变的时候,render函数就会重新执行
+=======
+>>>>>>> e6d8700b5b0662a24840e42d294faf468ecb2bc5
     this.state = {
       iptValue:"",
       list:[],
@@ -31,7 +37,10 @@ class TodoList extends Component{
     // console.log(this.state);
   }
   render(){
+<<<<<<< HEAD
     console.log('数据只要被改变,render就会被执行');
+=======
+>>>>>>> e6d8700b5b0662a24840e42d294faf468ecb2bc5
     // render函数外层必须有一个顶层元素
     return(
       <Fragment>
@@ -68,8 +77,11 @@ class TodoList extends Component{
 
           }
           </div>
+<<<<<<< HEAD
           {/* Test组件 */}
           <Test content={this.state.iptValue}/>
+=======
+>>>>>>> e6d8700b5b0662a24840e42d294faf468ecb2bc5
         </div>
       </Fragment>
     )

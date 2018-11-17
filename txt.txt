@@ -9,6 +9,7 @@ React：
       可以和其他框架并存
       组件化(通过ES6的class继承React.Componet来继承组件,组件首字母大写)
       单向数据流
+<<<<<<< HEAD
       视图层框架
       函数式编程
 
@@ -33,3 +34,10 @@ React开发调试工具(React Developer Tools)
 参数类型校验及参数默认值(PropTypes & DefaultProps)：
       PropTypes(强校验):接收外部传递的值,限制要求组件传递的值类型
       DefaultProps(默认值):设置组件数据默认值(缺省值)
+=======
+组件通信:
+      父子通信：
+            父组件通过属性向子组件传值,子组件用this.props.(数据)接收
+      子父通信：
+            父组件先向子组件传递一个方法,子组件用this.props.(数据/方法)去调用,间接的来操作父组件的数据/方法
+>>>>>>> e6d8700b5b0662a24840e42d294faf468ecb2bc5
