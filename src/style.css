@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+h3{
+  padding: 10px;
+  color: #ff0000;
+}
+#wrapper{
+  padding: 10px;
+}
+.input{
+  border: 1px #e0244d solid;
+}
+.submit{
+  margin-left: 5px;
+}
+.listInfo{
+  padding: 4px 0;
+}
+.listInfo:hover{
+  color: #ff0000;
+  cursor: pointer;
+}
+button{
+  padding: 0 4px;
+  cursor: pointer;
+}
