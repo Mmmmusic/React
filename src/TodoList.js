@@ -24,6 +24,7 @@ class TodoList extends Component{
 
     // state负责存储组件里的数据
     // 当组件的state或者props发生改变的时候,render函数就会重新执行
+
     this.state = {
       iptValue:"",
       list:[],
