@@ -13,7 +13,7 @@
   shouldComponentUpdate():组件更新之前会被执行,组件需要被更新吗
     return true(需要更新) ||return false(不需要更新)
     返回false时,后面的函数都不会被执行
-  componentWillUpdate(): 组件被更新之前,它会被自动执行,但是它在shouldComponentUpdate之后执行
+  componentWillUpdate():组件被更新之前,它会被自动执行,但是它在shouldComponentUpdate之后执行
     如果shouldComponentUpdate返回true它会执行
     如果返回false,这个函数就不会被执行了
   render():当state或props发生改变时(数据改变时),render()函数会重新执行
@@ -25,4 +25,4 @@
     如果这个组件之前存在于父组件中,才会执行
 
 04 Unmounting:解除挂载(组件移除)
-  componentWillUnmount():
+  componentWillUnmount():当这个组件即将被从页面中剔除的时候,会被执行
