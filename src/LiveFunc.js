@@ -33,8 +33,22 @@ class LiveFunc extends Component{
   // 在组件初次挂载后请求数据
   componentDidMount(){
     axios.get('/api/todolist')
-      .then(()=>{console.log('success')})
-      .catch(()=>{console.log('error')})
+      // .then(()=>{console.log('请求成功')})
+      .then((res)=>{
+        console.log(res);
+        // this.setState(()=>{
+        //   return {
+        //     list:res.data,
+        //   }
+        // })
+
+        // 优化简写
+        // ({}) === return {} -> () === return
+        this.setState(()=>({
+          list:[...res.data],
+        }))
+      })
+      .catch(()=>{console.log('请求失败')})
   }
 
   render(){
