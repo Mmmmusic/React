@@ -77,3 +77,23 @@ React开发调试工具(React Developer Tools)
       子父通信：
             父组件先向子组件传递一个方法,子组件用this.props.(数据/方法)去调用,间接的来操作父组件的数据/方法
 
+生命周期:
+      01 Mounting:已插入真实的DOM
+            componentWillMount 渲染前调用,在客户端也在服务端,此时可以修改组件的state
+            componentDidMount  第一次渲染后调用,可用于发送Ajax等请求
+
+      02 Upadting：正在被重新渲染
+            componentWillUpdate 接收新props或state后，进行渲染之前调用,此时不允许更新props或state
+            componentDidUpdate  完成渲染新的props或state之后调用,此时可以访问DOM元素
+
+      03 Unmounting:已移出真实DOM
+            componentWillUnmount 组件被移除之前调用，可以用于做一些清理工作
+            
+      ** shouldComponentUpadte  使用不当会出现bug
+            重新渲染render()函数时调用的函数,接收两个参数：nextProps和nextState,分别表示下一个props和下个state的值
+            当函数返回false,会阻止接下来的render()函数的调用,阻止组件的重新渲染
+            返回true时,组件照常渲染,可以用来优化性能
+            如果只是调用this.Setstate并未修改其中的值,可以在该生命周期内做一个判断,返回false会阻止接下来的render()函数渲染,避免重复渲染,优化性能
+
+
+

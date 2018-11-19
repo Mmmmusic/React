@@ -8,6 +8,38 @@ import TodoItem from './TodoItem';
 import Test from './test';
 
 class TodoList extends Component{
+  // DOM是否被初次渲染  // 只执行一次,此时可以修改组件的state
+  componentWillMount() {
+    console.log('componentWillMount');
+  }
+  // DOM初次渲染,在此可以请求数据
+  componentDidMount() {
+    console.log('componentDidMount');
+  }
+  // this.props改变时,此时可以更改组件的props及state
+  componentWillReceiveProps(newProps) {
+    console.log('componentWillReceiveProps',newProps);
+  }
+  // 重新渲染render()时的判断条件 // 当props或state发生变化时执行,并且是在render之前,当新的props或state不需要更新组件时,返回false,防止render()重复渲染,组件较多时使用该生命周期函数能很好的优化性能
+  // 使用不当会出现bug
+  shouldComponentUpdate(newProps, newState) {
+    // newProps是空JS对象,newState相当于是生成的虚拟DOM(也是JS对象)
+    console.log(newProps,newState);
+    return true;
+  }
+  // 接收新props或state后，进行渲染之前调用,此时不允许更新props或state
+  componentWillUpdate(nextProps, nextState) {
+    console.log('componentWillUpdate');
+  }
+  // 完成渲染新的props或state之后调用 ，此时可以访问DOM元素
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+  }
+  // 组件被移除之前调用，可以用于做一些清理工作
+  componentWillUnmount() {
+    console.log('componentWillUnmount');
+  }
+
   // 定义数据
   constructor(props){
     // super指父类Component
