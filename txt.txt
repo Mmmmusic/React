@@ -58,10 +58,10 @@ React开发调试工具(React Developer Tools)
       React的虚拟DOM：
             01 state数据
             02 JSX模板
-            03 数据 + 模板 结合,生成真实的DOM来显示
-            04 生成虚拟DOM(虚拟DOM是一个 JS对象,用它来描述真实DOM)
+            03 生成虚拟DOM(虚拟DOM是一个 JS对象,用它来描述真实DOM)
                <div id="list"><span>hello</span></div>
                ['div',{id:'list'},['span',{},'hello']]
+            04 用虚拟DOM的结构生成数据 + 模板 结合,生成真实的DOM来显示
             05 state发生变化
             06 数据 + 模板,生成新的虚拟DOM(极大的提升了性能) // 生成的是JS对象
                ['div',{id:'list'},['span',{},'123']]
@@ -70,12 +70,15 @@ React开发调试工具(React Developer Tools)
       优势:
             减少了对真实DOM的创建以及真实DOM的对比,虚拟DOM创建的是JS对象,对比的也是JS对象
             虚拟DOM本质上是一个JS对象,两个JS对象对比是不怎么耗性能的,比较真实的DOM会很耗性能
+                  01 性能提升
+                  02 使得跨端应用得以实现,React Native,原生应用不存在DOM概念,虚拟DOM本质上是一个JS对象,网页和原生应用都可以正常去解析和识别,在原生应用里可以把虚拟DOM转换成原生的组件
 
-组件通信:
-      父子通信：
-            父组件通过属性向子组件传值,子组件用this.props.(数据)接收
-      子父通信：
-            父组件先向子组件传递一个方法,子组件用this.props.(数据/方法)去调用,间接的来操作父组件的数据/方法
+虚拟DOM的diff(difference)算法：07步,两个虚拟DOM(JS对象)的对比方式就是 diff算法
+            01 数据发生改变时(调用setState时(props || state))回去对比虚拟DOM
+            02 this.setState(是异步操作,为的是提升性能)
+            03 虚拟DOM树是同层比对,虚拟DOM节点的对应key值最好不要用index做下标,会导致key值不稳定,使用一个稳定的内容作为key才是一个正确的做法,能不用index做key值就不要用它做key值
+
+React中的ref：帮助我们在react中直接获取DOM,可能会遇见其它问题
 
 生命周期:
       01 Mounting:已插入真实的DOM
@@ -90,10 +93,17 @@ React开发调试工具(React Developer Tools)
             componentWillUnmount 组件被移除之前调用，可以用于做一些清理工作
             
       ** shouldComponentUpadte  使用不当会出现bug
+            组件被更新之前,会自动被执行
             重新渲染render()函数时调用的函数,接收两个参数：nextProps和nextState,分别表示下一个props和下个state的值
             当函数返回false,会阻止接下来的render()函数的调用,阻止组件的重新渲染
             返回true时,组件照常渲染,可以用来优化性能
             如果只是调用this.Setstate并未修改其中的值,可以在该生命周期内做一个判断,返回false会阻止接下来的render()函数渲染,避免重复渲染,优化性能
+      
+      componentWillReceiveProps 
+            当一个组件从父组件接收参数
+            只要父组件的render函数被重新执行了,子组件的这个生命周期就会被执行
+            如果这个组件第一次存在于父组件中,不会执行
+            如果这个组件之前存在于父组件中,才会执行
 
 
 

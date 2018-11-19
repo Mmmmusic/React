@@ -8,38 +8,50 @@ import TodoItem from './TodoItem';
 import Test from './test';
 
 class TodoList extends Component{
-  // DOM是否被初次渲染  // 只执行一次,此时可以修改组件的state
+  // 组件即将被挂载到页面  // 只执行一次,此时可以修改组件的state
   componentWillMount() {
-    console.log('componentWillMount');
+    console.log('componentWillMount (挂载前)');
   }
-  // DOM初次渲染,在此可以请求数据
+
+  // 组件挂载到页面之后自动执行,在此可以请求数据
   componentDidMount() {
-    console.log('componentDidMount');
+    console.log('componentDidMount (挂载后)');
   }
-  // this.props改变时,此时可以更改组件的props及state
-  componentWillReceiveProps(newProps) {
-    console.log('componentWillReceiveProps',newProps);
-  }
-  // 重新渲染render()时的判断条件 // 当props或state发生变化时执行,并且是在render之前,当新的props或state不需要更新组件时,返回false,防止render()重复渲染,组件较多时使用该生命周期函数能很好的优化性能
+
+  // 组件被更新之前,它会自动被执行
+  // 当props或state发生变化时执行,并且是在render之前,当新的props或state不需要更新组件时,返回false,防止render()重复渲染,组件较多时使用该生命周期函数能很好的优化性能
   // 使用不当会出现bug
   shouldComponentUpdate(newProps, newState) {
     // newProps是空JS对象,newState相当于是生成的虚拟DOM(也是JS对象)
-    console.log(newProps,newState);
+    console.log('shouldComponentUpdate (是否更新)');
     return true;
   }
-  // 接收新props或state后，进行渲染之前调用,此时不允许更新props或state
+
+  // 组件被更新之前,它会被自动执行,但是它在shouldComponentUpdate之后执行
+  // 如果shouldComponentUpdate返回true它会执行
+  // 如果返回false,这个函数就不会被执行了
   componentWillUpdate(nextProps, nextState) {
-    console.log('componentWillUpdate');
-  }
-  // 完成渲染新的props或state之后调用 ，此时可以访问DOM元素
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-  }
-  // 组件被移除之前调用，可以用于做一些清理工作
-  componentWillUnmount() {
-    console.log('componentWillUnmount');
+    console.log('componentWillUpdate (更新前)');
   }
 
+  // 组件更新完成之后,它会被执行,此时可以访问DOM元素
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate (更新后)');
+  }
+
+  // 当一个组件从父组件接收参数
+  // 只要父组件的render函数被重新执行了,子组件的这个生命周期就会被执行
+  // 如果这个组件第一次存在于父组件中,不会执行
+  // 如果这个组件之前存在于父组件中,才会执行
+  componentWillReceiveProps(newProps) {
+    console.log('componentWillReceiveProps',newProps);
+  }
+
+  // 当这个组件即将被从页面中剔除的时候,会被执行
+  componentWillUnmount() {
+    console.log('child componentWillUnmount (解除挂载)');
+  }
+  
   // 定义数据
   constructor(props){
     // super指父类Component
@@ -63,8 +75,9 @@ class TodoList extends Component{
     }
     // console.log(this.state);
   }
+
   render(){
-    console.log('数据只要被改变,render就会被执行');
+    console.log('parent render');
     // render函数外层必须有一个顶层元素
     return(
       <Fragment>
@@ -80,9 +93,10 @@ class TodoList extends Component{
             onChange={this.ipt} 
             className="input" 
             id="insert"
+            ref={(val)=>{this.input=val}}
           />
           <button className="submit" onClick={this.cl}>submit</button>
-          <div id="info">{
+          <div id="info" ref={(val)=>{this.div=val}}>{
             this.getTodoItem()
 
             // 未分离写法
@@ -115,7 +129,7 @@ class TodoList extends Component{
   getTodoItem(){
     return this.state.list.map((item,index)=>{
       return ( 
-        <div key={index}>
+        <div key={item}>
           {/* 组件通信 this.props.(属性或方法名) 
               外层的div是用来注释用的,key值放在最外层元素上
           */}
@@ -134,7 +148,8 @@ class TodoList extends Component{
     // 如果想改变state里的数据,不能直接去修改,必须要用 setState({}) 方法
 
     // 函数写法
-    const val = e.target.value;
+    // const val = e.target.value;
+    const val = this.input.value;
     this.setState(()=>({
       iptValue:val
     }));
@@ -154,7 +169,10 @@ class TodoList extends Component{
       this.setState((prevState)=>({
         list:[...prevState.list,prevState.iptValue],
         iptValue:'',
-      }));
+      }),()=>{
+        // setState的第二个参数是一个回调函数
+        console.log(this.div.querySelectorAll('div').length);
+      });
       // 函数写法
       // this.setState(()=>{
       //   return{
@@ -167,7 +185,9 @@ class TodoList extends Component{
       //   list:[...this.state.list,this.state.iptValue],
       //   iptValue:'',
       // })
-      console.log(this);
+
+      // ref直接操作DOM
+      // console.log(this.div);
     }
   }
 
