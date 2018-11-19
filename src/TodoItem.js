@@ -14,6 +14,15 @@ class TodoItem extends Component{
     this.del = this.del.bind(this);
   }
 
+  // 组件是否更新
+  shouldComponentUpdate(nextProps,nextState){
+    if(nextProps.content !== this.props.content){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   render(){
     console.log('child render');
     // 解构赋值写法

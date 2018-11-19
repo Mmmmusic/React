@@ -6,6 +6,7 @@ import React,{Component,Fragment} from 'react';
 // 引入组件
 import TodoItem from './TodoItem';
 import Test from './test';
+import LiveFunc from './LiveFunc';
 
 class TodoList extends Component{
   // 组件即将被挂载到页面  // 只执行一次,此时可以修改组件的state
@@ -117,6 +118,8 @@ class TodoList extends Component{
           </div>
           {/* Test组件 */}
           <Test content={this.state.iptValue}/>
+          {/* LiveFunc组件 */}
+          <LiveFunc />
         </div>
       </Fragment>
     )

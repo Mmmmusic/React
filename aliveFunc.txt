@@ -1,3 +1,4 @@
+生命周期函数很重要
 生命周期函数指在某一个时刻组件会自动调用(执行)的函数
 生命周期函数是针对于组件来说的,每一个组件都可以有这些生命周期函数
 
@@ -26,3 +27,8 @@
 
 04 Unmounting:解除挂载(组件移除)
   componentWillUnmount():当这个组件即将被从页面中剔除的时候,会被执行
+
+componentWillMount()    这里也可以放ajax请求,但做React Navtive等项目时可能会发生冲突
+componentDidMount()     发送ajax等数据请求,只会执行一次,最常用
+constructor()           也可以放ajax请求,constructor也是只执行一次
+shouldComponentUpdate() 可以优化性能,避免render重复渲染
