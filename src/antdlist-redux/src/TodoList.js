@@ -1,7 +1,14 @@
 import React,{Component} from 'react';
 import 'antd/dist/antd.css';
 import { Input,Button,List } from 'antd';
+// redux文件
 import store from './store/index.js';
+import './style.css'
+// 引入action常量
+// import {change_ipt_value,add_todo_item,del_todo_item} from './store/actionTypes';
+
+// 引入actionCreator文件
+import {getInputChangeAction, getAddItemAction,getDeleteItemAction,} from './store/actionCreator';
 
 class TodoList extends Component{
 
@@ -20,7 +27,7 @@ class TodoList extends Component{
     return (
       <div style={{marginTop:'10px',marginLeft:'10px'}}>
         <div>
-          <Input 
+          <Input className="mar" 
             value={this.state.iptVal}
             placeholder="todo info" 
             style={{width:'300px',marginRight:'6px'}} 
@@ -32,7 +39,7 @@ class TodoList extends Component{
           style={{marginTop:'10px',width:'300px'}}
           bordered
           dataSource={this.state.list}
-          renderItem={item => (<List.Item>{item}</List.Item>)}
+          renderItem={(item,index) => (<List.Item onClick={this.del.bind(this,index)}>{item}</List.Item>)}
         />
       </div>
     )
@@ -40,10 +47,11 @@ class TodoList extends Component{
 
   ipt(e){
     // 需要做的事,创建一个action
-    const action = {
-      type:'change_ipt_value',
-      value:e.target.value,
-    }
+    // const action = {
+      // type:change_ipt_value,
+      // value:e.target.value,
+    // }
+    const action = getInputChangeAction(e.target.value);
     // 用dispatch传递action
     store.dispatch(action);
   }
@@ -57,10 +65,22 @@ class TodoList extends Component{
   }
 
   btnClick(){
-    const action = {
-      // type字段必填,告诉store你要做什么
-      type:'add_todo_item',
-    };
+    // const action = {
+    //   // type字段必填,告诉store你要做什么
+    //   type:add_todo_item,
+    // };
+    const action = getAddItemAction();
+    store.dispatch(action);
+  }
+
+  del(index){
+    console.log(index);
+    // const action = {
+    //   type:del_todo_item,
+    //   index:index,
+    // };
+    const action = getDeleteItemAction(index);
+    // 派送action
     store.dispatch(action);
   }
 
