@@ -2,25 +2,41 @@
 生命周期函数指在某一个时刻组件会自动调用(执行)的函数
 生命周期函数是针对于组件来说的,每一个组件都可以有这些生命周期函数
 
-01 Initialzation:初始化时(setup props and state)
+01 Initialzation:
+    初始化时(setup props and state)
 
-02 Mounting:挂载(只会在第一次挂载的时候,执行这两个生命周期函数)
-  componentWillMount():组件即将被挂载到页面之前自动执行
-  render():当state或props发生改变时(数据改变时),render()函数会重新执行
-  componentDidMount():组件被挂载到页面之后自动执行
+02 Mounting:
+    挂载(只会在第一次挂载的时候,执行这两个生命周期函数)
+    
+  componentWillMount():
+    组件即将被挂载到页面之前自动执行
+
+  render():
+    当state或props发生改变时(数据改变时),render()函数会重新执行
+
+  componentDidMount():
+    组件被挂载到页面之后自动执行
 
 03 Updation:组件更新
   props || state 发生变化时
-  shouldComponentUpdate():组件更新之前会被执行,组件需要被更新吗
+  shouldComponentUpdate():
+    组件更新之前会被执行,组件需要被更新吗
     return true(需要更新) ||return false(不需要更新)
     返回false时,后面的函数都不会被执行
-  componentWillUpdate():组件被更新之前,它会被自动执行,但是它在shouldComponentUpdate之后执行
+
+  componentWillUpdate():
+    组件被更新之前,它会被自动执行,但是它在shouldComponentUpdate之后执行
     如果shouldComponentUpdate返回true它会执行
     如果返回false,这个函数就不会被执行了
-  render():当state或props发生改变时(数据改变时),render()函数会重新执行
-  componentDidUpdate():组件更新完成之后,它会被执行,此时可以访问DOM元素
 
-  componentWillReceiveProps():当一个组件从父组件接收参数
+  render():
+    当state或props发生改变时(数据改变时),render()函数会重新执行
+
+  componentDidUpdate():
+    组件更新完成之后,它会被执行,此时可以访问DOM元素
+
+  componentWillReceiveProps():
+    当一个组件从父组件接收参数
     只要父组件的render函数被重新执行了,子组件的这个生命周期就会被执行
     如果这个组件第一次存在于父组件中,不会执行
     如果这个组件之前存在于父组件中,才会执行

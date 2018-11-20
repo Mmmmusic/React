@@ -1,0 +1,33 @@
+button{
+  cursor: pointer;
+}
+/* 入场动画 */
+.fade-enter{
+  margin-left: 50px;
+  color: #000;
+}
+/* 入场动画的第二个瞬间,动画尚未完成时会一直存在 */
+.fade-enter-active{
+  margin-left: 10px;
+  color: #e0244d;
+  transition: all .4s;
+}
+/* 入场动画执行完成之后 */
+.fade-enter-done{
+  margin-left: 10px;
+}
+/* 出场动画 */
+.fade-exit{
+  margin-left: 10px;
+  color: #e0244d;
+}
+/* 出场动画的第二个瞬间,动画尚未完成时会一直存在 */
+.fade-exit-active{
+  margin-left: 50px;
+  color: #000;
+  transition: all .4s;
+}
+/* 出场动画执行完成之后 */
+.fade-exit-done{
+  margin-left: 50px;
+}
