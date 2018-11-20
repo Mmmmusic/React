@@ -136,9 +136,28 @@ Redux(数据层框架,方便组件通信):
                   04 管理员去查记录本找对应的书(Reducers
                   )
             
+            01 获取数据:
+                  store.getState();
+            02 派发动作:
+                  store.dispatch();
+            03 只要store发生变化,就会执行里面的方法:
+                  store.subscribe();
+
+      reducer:拿到之前的数据和当前操作的信息,对之前的信息做些处理,然后返回给store
+
+      流程：
+            01 改变store里的数据
+            02 首先要去派发一个action
+            03 acition 通过dispatch方法传递给stroe
+            04 store把之前的数据和action转发给reducer
+            05 reducer是一个函数,它接收state和action做一些处理之后,会返回一个新的state给到store
+            06 store用这个新的state替换掉之前store里的数据
+            07 store数据发生改变时,react组件会感知到stroe发生改变
+            08 重新取store里的数据,更新组件的内容,页面就跟着发生变化
+
 css modules
 
-antd(react ui框架)
+antd(react ui框架):Ant Design
 
 
 
