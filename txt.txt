@@ -1,3 +1,5 @@
+React如果不引人其它数据框架的话,本质上是一个非常轻量级的视图层框架
+
 JSX：
       className
       htmlFor 
@@ -113,6 +115,31 @@ react-transition-group(动画框架):
       Transition(更底层)
       TransitionGroup(多组动画):
             里面包一个CSSTranistion
+
+Redux(数据层框架,方便组件通信):
+      把数据放在公共存储区(Store),组件中尽量少放数据,放到一个公共仓库中,谁用谁去公共仓库取,数据变化,跟它有关联的数据都会发生变化
+      Redux = Reducer + Flux
+
+      Flux是官方推出的最原始的辅助react框架,它里面可能存在多个Store,数据可能会混乱
+
+      工作流程：
+            React Components (借书的用户)
+            Action Creaters (说的要借什么书这句话)
+            Store (图书馆管理员)
+            Reducers (借记本,图书还借记录本)
+
+            借书流程
+                  01 借书的人(React Components
+                  )
+                  02 要借的哪本书(Action Creaters)
+                  03 和管理员沟通借什么书(Store)
+                  04 管理员去查记录本找对应的书(Reducers
+                  )
+            
+            css modules
+
+
+
 
 
 
