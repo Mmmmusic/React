@@ -1,4 +1,4 @@
-import {change_ipt_value,add_todo_item,del_todo_item} from './actionTypes';
+// import {change_ipt_value,add_todo_item,del_todo_item} from './actionTypes';
 
 // 数据
 const dafaultState = {
@@ -11,7 +11,7 @@ const dafaultState = {
 // reducer 可以接收state,但是绝不能修改state
 export default (state = dafaultState,action) =>{
   // state指store上次存储的数据,action指用户传递过来的数据
-  if(action.type == change_ipt_value){
+  if(action.type == 'change_ipt_value'){
     // 拷贝一份之前的数据
     const newState = JSON.parse(JSON.stringify(state));
     newState.iptVal = action.value;
@@ -20,7 +20,7 @@ export default (state = dafaultState,action) =>{
   }
   
   // 添加
-  if(action.type == add_todo_item){
+  if(action.type == 'add_todo_item'){
     if(state.iptVal !== ''){
       const newState = JSON.parse(JSON.stringify(state));
       console.log(newState);
@@ -32,7 +32,7 @@ export default (state = dafaultState,action) =>{
   }
 
   // 删除
-  if(action.type == del_todo_item){
+  if(action.type == 'del_todo_item'){
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.splice(action.index,1);
     return newState;

@@ -8,7 +8,7 @@ import './style.css'
 // import {change_ipt_value,add_todo_item,del_todo_item} from './store/actionTypes';
 
 // 引入actionCreator文件
-import {getInputChangeAction, getAddItemAction,getDeleteItemAction,} from './store/actionCreator';
+// import {getInputChangeAction, getAddItemAction,getDeleteItemAction,} from './store/actionCreator';
 
 class TodoList extends Component{
 
@@ -47,11 +47,11 @@ class TodoList extends Component{
 
   ipt(e){
     // 需要做的事,创建一个action
-    // const action = {
-      // type:change_ipt_value,
-      // value:e.target.value,
-    // }
-    const action = getInputChangeAction(e.target.value);
+    const action = {
+      type:'change_ipt_value',
+      value:e.target.value,
+    }
+    // const action = getInputChangeAction(e.target.value);
     // 用dispatch传递action
     store.dispatch(action);
   }
@@ -65,21 +65,21 @@ class TodoList extends Component{
   }
 
   btnClick(){
-    // const action = {
-    //   // type字段必填,告诉store你要做什么
-    //   type:add_todo_item,
-    // };
-    const action = getAddItemAction();
+    const action = {
+      // type字段必填,告诉store你要做什么
+      type:'add_todo_item',
+    };
+    // const action = getAddItemAction();
     store.dispatch(action);
   }
 
   del(index){
     console.log(index);
-    // const action = {
-    //   type:del_todo_item,
-    //   index:index,
-    // };
-    const action = getDeleteItemAction(index);
+    const action = {
+      type:'del_todo_item',
+      index:index,
+    };
+    // const action = getDeleteItemAction(index);
     // 派送action
     store.dispatch(action);
   }
