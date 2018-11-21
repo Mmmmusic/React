@@ -1,5 +1,4 @@
 import React, { Component,Fragment } from 'react';
-import Infolist from './Infolist';
 
 var arr = [];
 class App extends Component {
@@ -101,14 +100,6 @@ class App extends Component {
                         <button onClick={this.del.bind(this,index)}>删除</button>
                       </div>
                     </div>
-                    {/* <Infolist 
-                      name={item.name}
-                      sex={item.sex}
-                      age={item.age}
-                      hobby={item.hobby}
-                      index={index}
-                      childDel={this.del}
-                    /> */}
                   </div>
                 )
               })

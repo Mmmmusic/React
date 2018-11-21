@@ -2,6 +2,21 @@
   margin: 0;
   padding: 0;
 }
+a{
+  text-decoration: none;
+}
+.route{
+  width: 200px;
+  height: 28px;
+  margin: 0 auto;
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: space-around;
+}
+.route a:hover{
+  color: #1890ff;
+  border-bottom: 2px solid #1890ff;
+}
 input{
   padding: 0 10px;
   transition:all .3s;
