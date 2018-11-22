@@ -16,5 +16,11 @@ ul li{
   padding: 10px;
 }
 .list{
+  max-width: 240px;
+  padding: 10px 20px;
   margin-top: 10px;
+  border: 1px #dedede solid;
+}
+.btnDel{
+  margin-top: 6px;
 }

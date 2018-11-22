@@ -22,11 +22,12 @@ class TodoList extends Component{
             {
               this.props.list.map((item,index)=>{
                 return (
-                  <li key={index} onClick={this.props.handleClickDelete.bind(this,index)} className="list">
-                    {item.name}<br />
-                    {item.sex}<br />
-                    {item.age}<br />
-                    {item.hobby}<br />
+                  <li key={index} className="list">
+                    姓名：{item.name}<br />
+                    性别：{item.sex}<br />
+                    年龄：{item.age}<br />
+                    爱好：{item.hobby}<br />
+                    <button onClick={this.props.handleClickDelete.bind(this,index)} className="btnDel">删除</button>
                   </li>
                 )
               })
