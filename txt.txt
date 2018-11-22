@@ -185,6 +185,17 @@ Redux使用原则：
                   只要store发生改变,subscribe接收的回调函数就会被执行
                   this.setState(store.getState());                 
 
+React-redux:两个核心参数 Provider(包裹),connect(联结)
+      01 Provider:把store提供给在其内部的每一个组件
+      
+      02 connect:前两个参数是连接的规则,第三个参数指和哪个组件做连接
+            export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
+
+            1) 参数一:mapStateToProps = (state) => {}
+                        把store映射到该组件的props上
+
+            2) 参数二:mapDispatchToProps = (dispatch) => {}
+                        派发action      
 
 
 

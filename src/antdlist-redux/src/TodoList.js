@@ -107,4 +107,7 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
+// conncet两个常用参数：
+  // 01 mapStateToProps = (state) => {} 映射store到props
+  // 02 mapDispatchToProps = (dispatch) => {} 派发action
 export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
