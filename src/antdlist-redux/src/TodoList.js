@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import { Input,Button } from 'antd';
 // redux文件
 import {connect} from 'react-redux';
-import './style.css'
+import './style.css';
 
 // 引入actionCreator文件
 import {getNameChangeAction, getSexChangeAction,getAgeChangeAction,getHobbyChangeAction,getAddItemAction} from './store/actionCreator';
@@ -28,6 +28,16 @@ class TodoList extends Component{
 
     // 添加按钮
     // this.btnClick = this.btnClick.bind(this);
+  // }
+
+  // 请求数据
+  // componentDidMount(){
+  //   axios.get('/list.json').then((res)=>{
+        // console.log(res,'请求成功');
+  //   })
+  //   .catch(()=>{
+  //     console.log('请求失败');
+  //   })
   // }
 
   render(){
