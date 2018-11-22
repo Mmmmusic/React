@@ -1,0 +1,20 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+input{
+  margin-bottom: 4px;
+  padding: 4px;
+}
+button{
+  cursor: pointer;
+}
+ul li{
+  list-style: none;
+}
+.wrapper{
+  padding: 10px;
+}
+.list{
+  margin-top: 10px;
+}

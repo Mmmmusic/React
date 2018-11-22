@@ -2,7 +2,8 @@ import React,{Component} from 'react';
 import 'antd/dist/antd.css';
 import { Input,Button } from 'antd';
 // redux文件
-import store from './store/index.js';
+import {connect} from 'react-redux';
+import store from './store';
 import './style.css'
 
 // 引入actionCreator文件
@@ -11,10 +12,10 @@ import {getNameChangeAction, getSexChangeAction,getAgeChangeAction,getHobbyChang
 class TodoList extends Component{
 
   constructor(props){
-    console.log(store.getState());
+    console.log(store);
     super(props);
     // 获取store里的数据
-    this.state = store.getState();
+    // this.state = store.getState();
 
     // 获取输入框值
     this.nameVal = this.nameVal.bind(this);
@@ -22,38 +23,39 @@ class TodoList extends Component{
     this.ageVal = this.ageVal.bind(this);
     this.hobbyVal = this.hobbyVal.bind(this);
 
-    this.storeChange = this.storeChange.bind(this);
+    // this.storeChange = this.storeChange.bind(this);
     // 当store里数据改变时,执行该方法
-    store.subscribe(this.storeChange);
+    // store.subscribe(this.storeChange);
 
     // 添加按钮
     this.btnClick = this.btnClick.bind(this);
   }
 
   render(){
+    console.log(this.props,store)
     return (
       <div style={{marginTop:'10px',marginLeft:'10px'}}>
         <div>
           <Input className="mar" 
-            value={this.state.nameVal}
+            value={store.nameVal}
             placeholder="姓名" 
             style={{width:'300px',marginRight:'6px'}} 
             onChange={this.nameVal}
           /><br />
           <Input className="mar" 
-            value={this.state.sexVal}
+            value={store.sexVal}
             placeholder="性别" 
             style={{width:'300px',marginRight:'6px'}} 
             onChange={this.sexVal}
           /><br />
           <Input className="mar" 
-            value={this.state.ageVal}
+            value={store.ageVal}
             placeholder="年龄" 
             style={{width:'300px',marginRight:'6px'}} 
             onChange={this.ageVal}
           /><br />
           <Input className="mar" 
-            value={this.state.hobbyVal}
+            value={store.hobbyVal}
             placeholder="爱好" 
             style={{width:'300px',marginRight:'6px'}} 
             onChange={this.hobbyVal}
@@ -85,10 +87,10 @@ class TodoList extends Component{
   }
 
   // store发生变化时执行
-  storeChange(){
-    // 重新去store里取数据,调用setStae替换掉当前组件里的数据
-    this.setState(store.getState());
-  }
+  // storeChange(){
+  //   // 重新去store里取数据,调用setStae替换掉当前组件里的数据
+  //   this.setState(store.getState());
+  // }
 
   btnClick(){
     const action = getAddItemAction();
@@ -97,4 +99,4 @@ class TodoList extends Component{
 
 }
 
-export default TodoList;
+export default connect()(TodoList);

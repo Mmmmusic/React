@@ -9,8 +9,8 @@ import TodoList from './TodoList';
 const Router = () => (
     <Fragment>
 
-      <a href='http://localhost:3000/#/'><Button className="mar mar-all">主页</Button></a>
-      <a href='http://localhost:3000/#/add'><Button className="mar mar-all">添加信息</Button></a>
+      <a href='http://localhost:3001/#/'><Button className="mar mar-all">主页</Button></a>
+      <a href='http://localhost:3001/#/add'><Button className="mar mar-all">添加信息</Button></a>
 
       <HashRouter>
         <Switch>
