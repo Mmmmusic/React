@@ -1,31 +1,27 @@
 import React,{Component,Fragment} from 'react';
 import 'antd/dist/antd.css';
 import { List } from 'antd';
-import './style.css'
-import store from './store';
+import {connect} from 'react-redux';
+import './style.css';
 import { getDeleteItemAction,} from './store/actionCreator';
 
 class ShowList extends Component{
 
-  constructor(props){
-    super(props);
-    this.state = store.getState();
-    console.log(this.state);
+  // constructor(props){
+  //   super(props);
+  //   this.state = store.getState();
+  //   console.log(this.state);
     
-    this.storeChange = this.storeChange.bind(this);
-    // 当store里数据改变时,执行该方法
-    store.subscribe(this.storeChange);
-  }
-  del(index){
-    console.log(index);
-    const action = getDeleteItemAction(index);
-    store.dispatch(action);
-  }
+  //   this.storeChange = this.storeChange.bind(this);
+  //   // 当store里数据改变时,执行该方法
+  //   subscribe(this.storeChange);
+  // }
+
   // store发生变化时执行
-  storeChange(){
-    // 重新去store里取数据,调用setStae替换掉当前组件里的数据
-    this.setState(store.getState());
-  }
+  // storeChange(){
+  //   // 重新去store里取数据,调用setStae替换掉当前组件里的数据
+  //   this.setState(store.getState());
+  // }
 
   render(){
     return(
@@ -35,8 +31,8 @@ class ShowList extends Component{
           <List
             style={{marginTop:'10px',width:'300px'}}
             bordered
-            dataSource={this.state.list}
-            renderItem={(item,index) => (<List.Item onClick={this.del.bind(this,index)}>
+            dataSource={this.props.list}
+            renderItem={(item,index) => (<List.Item onClick={this.props.del.bind(this,index)}>
               姓名：{item.name}<br />
               性别：{item.sex}<br />
               年龄：{item.age}<br />
@@ -50,4 +46,19 @@ class ShowList extends Component{
 
 }
 
-export default ShowList;
+const mapStateToProps = (state) => {
+  return {
+    list:state.list
+  }
+}
+const mapDispatchToprops = (dispatch) => {
+  return{
+    del(index){
+      console.log(index);
+      const action = getDeleteItemAction(index);
+      dispatch(action);
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToprops)(ShowList);
