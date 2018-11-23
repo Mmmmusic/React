@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Input,Button } from 'antd';
 // redux文件
 import {connect} from 'react-redux';
+import axios from 'axios';
 import './style.css';
 
 // 引入actionCreator文件
@@ -31,14 +32,14 @@ class TodoList extends Component{
   // }
 
   // 请求数据
-  // componentDidMount(){
-  //   axios.get('/list.json').then((res)=>{
-        // console.log(res,'请求成功');
-  //   })
-  //   .catch(()=>{
-  //     console.log('请求失败');
-  //   })
-  // }
+  componentDidMount(){
+    axios.get('/list.json').then((res)=>{
+        console.log(res,'请求成功');
+    })
+    .catch(()=>{
+      console.log('请求失败');
+    })
+  }
 
   render(){
     // console.log(this.props,store)

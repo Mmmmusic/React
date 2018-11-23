@@ -1,10 +1,37 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
-import {getNameChangeAction, getSexChangeAction,getAgeChangeAction,getHobbyChangeAction,getAddItemAction,getDeleteItemAction} from './store/actionCreator';
+// 引入action仓库
+import {getNameChangeAction, getSexChangeAction,getAgeChangeAction,getHobbyChangeAction,getAddItemAction,getDeleteItemAction, getTodoList,getInitList} from './store/actionCreator';
 import './style.css';
-
+// import axios from 'axios';
+import store from './store'
 
 class TodoList extends Component{
+
+  componentDidMount() {
+    // thunk
+    // const action = getTodoList();
+    // store.dispatch(action);
+    // console.log(action);
+
+    // axios.get('./list.js')
+    // .then((res)=>{
+    //   const data = res.data;
+    //   const action = initListAction(data);
+    //   store.dispatch(action);
+    //   console.log('请求成功',action);
+    // })
+    // .catch(()=>{
+    //   console.log('请求失败');
+    // })
+
+    // saga
+    const action = getInitList();
+    store.dispatch(action);
+    console.log(action);
+
+  }
+
   render(){
     // const { inputValue,changeInputValue,handleClick,list } = this.props;
     // console.log(this.props);

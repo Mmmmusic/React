@@ -197,6 +197,13 @@ React-redux:两个核心参数 Provider(包裹),connect(联结)
             2) 参数二:mapDispatchToProps = (dispatch) => {}
                         派发action      
 
+redux中间件：指store和action的中间(只有redux里才有store和aciton),对store的dispatch方法做一个升级
+            解决异步代码的问题,代码进行拆分管理
+      01 redux-thunk:把异步操作放到action里面
+                        让我们在action返回的不只是一个对象,而且还可以是一个函数
+            使用redux-thunk对store的dispatch方法升级后,action可以写成函数,本来只能是对象
+
+      02 redux-saga:单独的把异步逻辑拆分出来,放到另一个文件里管理
 
 
 

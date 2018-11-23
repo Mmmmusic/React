@@ -1,4 +1,4 @@
-import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item } from "./actionTypes";
+import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item,init_list_action } from "./actionTypes";
 
 const data = {
   nameValue:'',
@@ -21,29 +21,29 @@ const data = {
   ]
 }
 
-export default (state=data,aciton)=>{
-  if(aciton.type === iptNameVal){
+export default (state=data,action)=>{
+  if(action.type === iptNameVal){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.nameValue = aciton.value;
+    newState.nameValue = action.value;
     return newState;
   }
-  if(aciton.type === iptSexVal){
+  if(action.type === iptSexVal){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.sexValue = aciton.value;
+    newState.sexValue = action.value;
     return newState;
   }
-  if(aciton.type === iptAgeVal){
+  if(action.type === iptAgeVal){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.ageValue = aciton.value;
+    newState.ageValue = action.value;
     return newState;
   }
-  if(aciton.type === iptHobbyVal){
+  if(action.type === iptHobbyVal){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.hobbyValue = aciton.value;
+    newState.hobbyValue = action.value;
     return newState;
   }
 
-  if(aciton.type === add_msg_item){
+  if(action.type === add_msg_item){
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.unshift(
       {
@@ -59,11 +59,21 @@ export default (state=data,aciton)=>{
     newState.hobbyValue = '';
     return newState;
   }
-  if(aciton.type === del_todo_item){
+  if(action.type === del_todo_item){
     const newState = JSON.parse(JSON.stringify(state));
-    newState.list.splice(aciton.index,1);
+    newState.list.splice(action.index,1);
     return newState;
   }
+
+  // thunk
+  if(action.type === init_list_action){
+    const newState = JSON.parse(JSON.stringify(state));
+    // newState.list.push(action.data);
+    console.log(action.data);
+    return newState;
+  }
+
+  // saga
 
   return state;
 }
