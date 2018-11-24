@@ -1,0 +1,115 @@
+.headBox{
+  height: 58px;
+  border-bottom: 1px solid #f0f0f0;
+  position: relative;
+}
+.logo{
+  width: 100px;
+  height: 56px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #000;
+  background: url(../../stactics/logo.png);
+  background-size: contain;
+}
+.nav{
+  width: 960px;
+  height: 100%;
+  margin: 0 auto;
+  padding-right: 70px;
+  box-sizing: border-box;
+}
+.nav p{
+  padding: 0 15px;
+  line-height: 56px;
+  font-size: 17px;
+  color: #333333;
+}
+.nav p:nth-child(1){
+  float: left;
+}
+.nav p:nth-child(2){
+  float: left;
+}
+.nav p:nth-child(3){
+  float: right;
+  color: #969696;
+}
+.nav p:nth-child(4){
+  float: right;
+  color: #969696;
+}
+.active{
+  color: #ea6f5a;
+}
+.searchBox{
+  float: left;
+  overflow: hidden;
+  position: relative;
+}
+.searchBox i{
+  position: absolute;
+  right: 5px;
+  bottom: 4px;
+  width: 30px;
+  line-height: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: #969696;
+  transition:all .5s;
+}
+.search{
+  width: 160px;
+  height: 38px;
+  border: none;
+  outline: none;
+  border-radius: 19px;
+  margin-top: 9px;
+  margin-left: 20px;
+  padding: 0 30px 0 20px;
+  box-sizing: border-box;
+  background-color: #eee;
+  color: #777777;
+  font-size: 14px;
+  transition:all .5s;
+}
+.search:focus{
+  width: 200px;
+}
+.search:focus ~ i{
+  background-color: #999;
+  color: #ffffff;
+}
+::placeholder{
+  color: #999;
+}
+.btnBox{
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 56px;
+}
+.btnBox button{
+  float: right;
+  line-height: 38px;
+  border-radius: 19px;
+  margin-top: 9px;
+  margin-right: 20px;
+  padding: 0 20px;
+  border: 1px solid #ec6149;
+  outline: none;
+  cursor: pointer;
+}
+.reg{
+  color: #ec6149;
+  background-color: #fff;
+}
+.writting{
+  color: #ffffff;
+  background-color: #ec6149;
+}
+.writting i{
+  margin-right: 2px;
+}
