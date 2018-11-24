@@ -1,4 +1,4 @@
-React如果不引人其它数据框架的话,本质上是一个非常轻量级的视图层框架
+﻿React如果不引人其它数据框架的话,本质上是一个非常轻量级的视图层框架
 
 JSX：
       className
@@ -205,6 +205,7 @@ redux中间件：指store和action的中间(只有redux里才有store和aciton),
 
       02 redux-saga:单独的把异步逻辑拆分出来,放到另一个文件里管理
 
+combineReaducers：拆分reducer为一个一个的小reducer分类,不会使reducer总文件太过冗余
 
 
 
