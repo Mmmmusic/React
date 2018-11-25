@@ -52,7 +52,7 @@ class Header extends Component{
   }
 
   render(){
-    const {handleInputFocus,handleInputBlur} = this.props;
+    const {handleInputFocus,handleInputBlur,list} = this.props;
     // console.log(this.props);
     return(
       <div className={header.headBox}>
@@ -67,7 +67,7 @@ class Header extends Component{
               type="text" 
               className={header.search} 
               placeholder="搜索"
-              onFocus={handleInputFocus}
+              onFocus={()=>handleInputFocus(list)}
               onBlur={handleInputBlur}
             />
             <i className="iconfont">&#xe62a;</i>
@@ -107,8 +107,11 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return{
     // 搜索框聚焦
-    handleInputFocus(){
-      dispatch(actionCreators.getList());
+    handleInputFocus(list){
+      // console.log(list);
+      if(list.size === 0){
+        dispatch(actionCreators.getList());
+      }
       dispatch(actionCreators.searchFocus());
     },
     // 搜索框失焦
