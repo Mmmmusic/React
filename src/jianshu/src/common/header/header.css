@@ -48,7 +48,7 @@
   float: left;
   position: relative;
 }
-.searchBox i{
+.searchBox>i{
   position: absolute;
   right: 5px;
   bottom: 4px;
@@ -134,6 +134,18 @@
 .searchInfoSwitch{
   float: right;
   font-size: 13px;
+  cursor: pointer;
+  transition: all .3s;
+}
+.searchInfoSwitch>i{
+  display: inline-block;
+  margin-right: 4px;
+  font-size: 14px;
+  transition: all .3s;
+  transform-origin: center center;
+}
+.searchInfoSwitch:hover{
+  color: #767676;
 }
 .searchInfoList{
   overflow: hidden;

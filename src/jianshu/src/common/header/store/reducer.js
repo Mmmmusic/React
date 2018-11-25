@@ -2,7 +2,10 @@ import * as constants from './actionTypes';
 import {fromJS} from 'immutable';
 const defaultState = fromJS({
   focused:false,
-  list:[]
+  mouseIn:false,
+  list:[],
+  page:1,
+  totalPage:1
 });
 
 // const defaultState = {
@@ -19,7 +22,18 @@ export default (state=defaultState,action) => {
     case constants.search_blur:
       return state.set('focused',false);
     case constants.change_list:
-      return state.set('list',action.data);
+      // merge可以同时去改变多个数据内容,可以优化性能
+      return state.merge({
+        list:action.data,
+        totalPage:action.totalPage
+      });
+      // return state.set('list',action.data).set('totalPage',action.totalPage);
+    case constants.mouse_enter:
+      return state.set('mouseIn',true);
+    case constants.mouse_leave:
+      return state.set('mouseIn',false);
+    case constants.change_page:
+      return state.set('page',action.page);
     default:
       return state;
   }

@@ -6,21 +6,42 @@ import * as actionCreators from './store/actionCreator';
 class Header extends Component{
 
   getSearchList(){
-    const {focused,list} = this.props;
-    if(focused){
+    const {focused,mouseIn,list,page,totalPage,handleMouseEnter,handleMouseLeave,handelChangePage} = this.props;
+    // 把immutable数组转换成普通的js数组
+    const jsList = list.toJS();
+    const pageList = [];
+    if(jsList.length){
+      for(let i = ((page - 1) * 10);i < page * 10;i++){
+        // console.log(jsList[i]);
+        pageList.push(
+          <a href="###" key={jsList[i]}>{jsList[i]}</a>
+        )
+      }
+    }
+
+    if(focused || mouseIn){
       return(
-        <div className={header.searchInfo}>
+        <div 
+          className={header.searchInfo} 
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           <div className={header.searchInfoTitle}>
             热门搜索
-            <span className={header.searchInfoSwitch}>
+            <span 
+              className={header.searchInfoSwitch}
+              onClick={()=>handelChangePage(page,totalPage,this.spinIcon)}
+            >
+            <i className="iconfont" ref={(icon)=>{this.spinIcon=icon}}>&#xe851;</i>
               换一批
             </span>
           </div>
           <div className={header.searchInfoList}>
             {
-              list.map((item)=>{
-                return  <a href="###" key={item}>{item}</a>
-              })
+              // list.map((item)=>{
+              //   return  <a href="###" key={item}>{item}</a>
+              // })
+              pageList
             }
           </div>
         </div>
@@ -31,7 +52,7 @@ class Header extends Component{
   }
 
   render(){
-    const {focused,handleInputFocus,handleInputBlur} = this.props;
+    const {handleInputFocus,handleInputBlur} = this.props;
     // console.log(this.props);
     return(
       <div className={header.headBox}>
@@ -65,14 +86,10 @@ class Header extends Component{
   }
 }
 
-// const getSearchList = (show) => {
-  
-// }
+// const getSearchList = (show) => {}
 
 // // 无状态组件
-// const Header = (props) => { 
-
-// }
+// const Header = (props) => { }
 
 const mapStateToProps = (state) => {
   return{
@@ -82,6 +99,9 @@ const mapStateToProps = (state) => {
     focused:state.header.get('focused'),
     // list是immutable数组
     list:state.header.get('list'),
+    page:state.header.get('page'),
+    totalPage:state.header.get('totalPage'),
+    mouseIn:state.header.get('mouseIn'),
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -94,6 +114,29 @@ const mapDispatchToProps = (dispatch) => {
     // 搜索框失焦
     handleInputBlur(){
       dispatch(actionCreators.searchBlur());
+    },
+    handleMouseEnter(){
+      dispatch(actionCreators.mouseEnter());
+    },
+    handleMouseLeave(){
+      dispatch(actionCreators.mouseLeave());
+    },
+    handelChangePage(page,totalPage,spinIcon){
+      // console.log(page,totalPage,spinIcon);
+      // ref可以获取到组件渲染的真实DOM节点
+      let originRotate = spinIcon.style.transform.replace(/[^0-9]/ig,'');
+      if(originRotate){
+        originRotate = parseInt(originRotate,10)
+      }else{
+        originRotate = 0;
+      }
+      spinIcon.style.transform = 'rotate('+(originRotate+360)+'deg)';
+
+      if(page<totalPage){
+        dispatch(actionCreators.changePage(page+1));
+      }else{
+        dispatch(actionCreators.changePage(1));
+      }
     }
   }
 }

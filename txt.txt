@@ -18,7 +18,7 @@ React：
             减少了大量的DOM操作代码量
       02 框架并存：
             不影响其他框架的使用,比如jq,swiper
-      03 组件通信:
+      03 组件通信：
             父子通信：
                   父组件通过属性向子组件传值,子组件用this.props.(数据)接收
             子父通信：
@@ -33,20 +33,20 @@ React：
 React开发调试工具(React Developer Tools)
 
 参数类型校验及参数默认值(PropTypes & DefaultProps)：
-      PropTypes(强校验):接收外部传递的值,限制要求组件传递的值类型
-      DefaultProps(默认值):设置组件数据默认值(缺省值)
+      PropTypes(强校验)：接收外部传递的值,限制要求组件传递的值类型
+      DefaultProps(默认值)：设置组件数据默认值(缺省值)
 
-虚拟DOM:
+虚拟DOM：
       01 state 数据
       02 JSX模板
       03 数据 + 模板 结合,生成真实的DOM来显示
       04 当state数据改变,数据 + 模板 结合,生成真实的DOM,替换原始的DOM
-      缺陷:
+      缺陷：
             第一次生成了一个完整的DOM片段
             第二次生成了一个完整的DOM片段
             第二次的DOM替换第一次的DOM,替换全部DOM节点,非常耗性能
       
-      改良版DOM优势:
+      改良版DOM优势：
             01 state 数据
             02 JSX模板
             03 数据 + 模板 结合,生成真实的DOM来显示
@@ -54,7 +54,7 @@ React开发调试工具(React Developer Tools)
             05 新的DOM和原始的DOM 作对比,找差异
             06 找出发生变化的地方
             07 只替换掉DOM节点中发生变化的元素,提升性能
-      缺陷:
+      缺陷：
             性能提升并不明显
       
       React的虚拟DOM：
@@ -62,14 +62,14 @@ React开发调试工具(React Developer Tools)
             02 JSX模板
             03 生成虚拟DOM(虚拟DOM是一个 JS对象,用它来描述真实DOM)
                <div id="list"><span>hello</span></div>
-               ['div',{id:'list'},['span',{},'hello']]
+               ['div',{id：'list'},['span',{},'hello']]
             04 用虚拟DOM的结构生成数据 + 模板 结合,生成真实的DOM来显示
             05 state发生变化
             06 数据 + 模板,生成新的虚拟DOM(极大的提升了性能) // 生成的是JS对象
-               ['div',{id:'list'},['span',{},'123']]
+               ['div',{id：'list'},['span',{},'123']]
             07 比较原始虚拟DOM和新的虚拟DOM区别,找到区别是span中的内容(比较的是两个JS对象,也极大的提升了性能)
             08 直接操作DOM,改变span中的内容
-      优势:
+      优势：
             减少了对真实DOM的创建以及真实DOM的对比,虚拟DOM创建的是JS对象,对比的也是JS对象
             虚拟DOM本质上是一个JS对象,两个JS对象对比是不怎么耗性能的,比较真实的DOM会很耗性能
                   01 性能提升
@@ -82,8 +82,8 @@ React开发调试工具(React Developer Tools)
 
 React中的ref：帮助我们在react中直接获取DOM,可能会遇见其它问题
 
-生命周期:
-      01 Mounting:已插入真实的DOM
+生命周期：
+      01 Mounting：已插入真实的DOM
             componentWillMount 渲染前调用,在客户端也在服务端,此时可以修改组件的state
             componentDidMount  第一次渲染后调用,可用于发送Ajax等请求
 
@@ -91,7 +91,7 @@ React中的ref：帮助我们在react中直接获取DOM,可能会遇见其它问
             componentWillUpdate 接收新props或state后，进行渲染之前调用,此时不允许更新props或state
             componentDidUpdate  完成渲染新的props或state之后调用,此时可以访问DOM元素
 
-      03 Unmounting:已移出真实DOM
+      03 Unmounting：已移出真实DOM
             componentWillUnmount 组件被移除之前调用，可以用于做一些清理工作
             
       ** shouldComponentUpadte  使用不当会出现bug
@@ -110,13 +110,13 @@ React中的ref：帮助我们在react中直接获取DOM,可能会遇见其它问
 Charles可以进行数据模拟,mock也可以模拟数据
       charles可以抓取浏览器向外发送的请求,可以对请求做一些处理,它的规则是只要请求charles里Map Local里设置的Local Path,就把桌面的一个文件的内容返回给你,charles相当于是一个中间代理服务器,它可以抓到浏览器请求,如果有些接口需要模拟,就可以用
 
-react-transition-group(动画框架):
+react-transition-group(动画框架)：
       CSSTransiton
       Transition(更底层)
-      TransitionGroup(多组动画):
+      TransitionGroup(多组动画)：
             里面包一个CSSTranistion
 
-Redux(数据层框架,方便组件通信):
+Redux(数据层框架,方便组件通信)：
       把数据放在公共存储区(Store),组件中尽量少放数据,放到一个公共仓库中,谁用谁去公共仓库取,数据变化,跟它有关联的数据都会发生变化
       Redux = Reducer + Flux
 
@@ -136,14 +136,14 @@ Redux(数据层框架,方便组件通信):
                   04 管理员去查记录本找对应的书(Reducers
                   )
             
-            01 获取数据:
+            01 获取数据：
                   store.getState();
-            02 派发动作:
+            02 派发动作：
                   store.dispatch();
-            03 只要store发生变化,就会执行里面的方法:
+            03 只要store发生变化,就会执行里面的方法：
                   store.subscribe();
 
-      reducer:拿到之前的数据和当前操作的信息,对之前的信息做些处理,然后返回给store
+      reducer：拿到之前的数据和当前操作的信息,对之前的信息做些处理,然后返回给store
 
       流程：
             01 改变store里的数据
@@ -159,7 +159,7 @@ Redux(数据层框架,方便组件通信):
 
 css modules???
 
-antd(react ui框架):Ant Design
+antd(react ui框架)：Ant Design
 
 Redux使用原则：
       01 store(公共存储空间)唯一
@@ -185,29 +185,40 @@ Redux使用原则：
                   只要store发生改变,subscribe接收的回调函数就会被执行
                   this.setState(store.getState());                 
 
-React-redux:两个核心参数 Provider(包裹),connect(联结)
-      01 Provider:把store提供给在其内部的每一个组件
+React-redux：两个核心参数 Provider(包裹),connect(联结)
+      01 Provider：把store提供给在其内部的每一个组件
       
-      02 connect:前两个参数是连接的规则,第三个参数指和哪个组件做连接
+      02 connect：前两个参数是连接的规则,第三个参数指和哪个组件做连接
             export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
 
-            1) 参数一:mapStateToProps = (state) => {}
+            1) 参数一：mapStateToProps = (state) => {}
                         把store映射到该组件的props上
 
-            2) 参数二:mapDispatchToProps = (dispatch) => {}
+            2) 参数二：mapDispatchToProps = (dispatch) => {}
                         派发action      
 
 redux中间件：指store和action的中间(只有redux里才有store和aciton),对store的dispatch方法做一个升级
             解决异步代码的问题,代码进行拆分管理
-      01 redux-thunk:把异步操作放到action里面
+      01 redux-thunk：把异步操作放到action里面
                         让我们在action返回的不只是一个对象,而且还可以是一个函数
             使用redux-thunk对store的dispatch方法升级后,action可以写成函数,本来只能是对象
 
-      02 redux-saga:单独的把异步逻辑拆分出来,放到另一个文件里管理
+      02 redux-saga：单独的把异步逻辑拆分出来,放到另一个文件里管理
 
 combineReaducers：拆分reducer为一个一个的小reducer分类,不会使reducer总文件太过冗余
 
+immutable：数据格式统一管理,Facebook开发
 
+React重要的两点：
+	    01 react是面向数据编程,最难的地方在于reducer里的数据应该如何设计
+
+      02 如果想改变react里的数据,要遵循redux的单向数据流的流程,
+          首先要派发action给到store
+          store再给到reducer
+          reducer返回一个新的数据给到stroe
+          store再去变更自己的内容
+          当数据发生变更
+          页面就会自动跟着变化
 
 
 

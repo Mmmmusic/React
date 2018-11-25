@@ -6,7 +6,8 @@ import axios from 'axios';
 const changeList = (data) => ({
   type:constants.change_list,
   // 把action里的data也转化成immutable数组
-  data:fromJS(data)
+  data:fromJS(data),
+  totalPage:Math.ceil(data.length / 10)
 })
 
 // 需要暴露出去,给别人用的
@@ -15,6 +16,16 @@ export const searchFocus = () => ({
 });
 export const searchBlur = () => ({
   type:constants.search_blur
+});
+export const mouseEnter = () => ({
+  type:constants.mouse_enter
+});
+export const mouseLeave = () => ({
+  type:constants.mouse_leave
+});
+export const changePage = (page) => ({
+  type:constants.change_page,
+  page:page
 });
 
 // 异步处理逻辑拆分到了actionCreator里
