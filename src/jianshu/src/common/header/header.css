@@ -46,7 +46,6 @@
 }
 .searchBox{
   float: left;
-  overflow: hidden;
   position: relative;
 }
 .searchBox i{
@@ -82,6 +81,9 @@
   background-color: #999;
   color: #ffffff;
 }
+.search:focus ~ i ~.searchInfo{
+  display: block;
+}
 ::placeholder{
   color: #999;
 }
@@ -112,4 +114,45 @@
 }
 .writting i{
   margin-right: 2px;
+}
+.searchInfo{
+  position: absolute;
+  left: 0;
+  top: 58px;
+  width: 240px;
+  padding: 0 20px;
+  box-shadow: 0 0 8px rgba(0,0,0,.2);
+  /* display: none; */
+}
+.searchInfoTitle{
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 14px;
+  color: #969696;
+}
+.searchInfoSwitch{
+  float: right;
+  font-size: 13px;
+}
+.searchInfoList{
+  overflow: hidden;
+}
+.searchInfoList a{
+  display: block;
+  float: left;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  line-height: 20px;
+  padding: 0 5px;
+  font-size: 12px;
+  border: 1px solid #dedede;
+  color: #787878;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: all .3s;
+}
+.searchInfoList a:hover{
+  color: #666;
+  border: 1px solid #666;
 }
