@@ -1,0 +1,47 @@
+{
+  "success": true,
+  "data": {
+    "topicList": [
+        {
+          "id": 1,
+          "title": "社会热点",
+          "imgUrl": "//upload.jianshu.io/users/upload_avatars/8781442/79bf6acc-5dd3-49d1-9e2b-6c58066c1442.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+        },
+        {
+          "id": 2,
+          "title": "手绘",
+          "imgUrl": "//upload.jianshu.io/users/upload_avatars/677687/c84b99723362.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp"
+        }
+    ],
+    "articleList": [
+        {
+          "id": 1,
+          "title": "诗 | 规律",
+          "desc": "还是厌了，倦了没精打采的，是曾经尖叫的耳朵陀螺般单曲循环，那些歌 曾经笃定地想，许它一辈子的那些节奏和旋律已平淡无奇，像絮叨的巫婆 这是个规律，...",
+          "imgUrl": "//upload-images.jianshu.io/upload_images/10208250-c6e710dc07aee9d9.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+        },
+        {
+          "id": 2,
+          "title": "从无业主妇到月入八万，她是如何实现自我成长的？",
+          "desc": "有人说，这个世界对女性不公平，职场上，用人单位歧视女性，致使有的女生不敢结婚生孩子；若全职在家，没有经济能力，只能看老公脸色，艰难度日。可是，有...",
+          "imgUrl": "//upload-images.jianshu.io/upload_images/11759047-b972fbf7c7b2320b.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+        },
+        {
+          "id": 3,
+          "title": "人走茶凉",
+          "desc": "甲：“你听说没有，咱们局长出车祸了。” 乙：“啊！不会吧，局长没事吧。” 甲：“听我一个医院的朋友说，局长和她夫人一起送进来的。局长昏迷了还在抢...",
+          "imgUrl": "//upload-images.jianshu.io/upload_images/13737711-9d466d2906678b4a.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/300/h/240"
+        }
+    ],
+    "recommendList": [
+        {
+          "id": 1,
+          "imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png"
+        },
+        {
+          "id": 2,
+          "imgUrl": "http://cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png"
+        }
+    ]
+  }
+}
