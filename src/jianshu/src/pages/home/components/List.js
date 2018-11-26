@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {actionCreators} from '../store';
 import list from '../home.css';
+import {Link} from 'react-router-dom';
 
 class List extends Component{
   render(){
@@ -11,13 +12,17 @@ class List extends Component{
         {
           articleList.map((item,index)=>{
             return(
-              <div className={list.listItem} key={index}>
-                <img src={item.get('imgUrl')} alt="" className={list.listPic}/>
-                <div className={list.listInfo}>
-                  <h3 className={list.listTitle}>{item.get('title')}</h3>
-                  <p className={list.listDesc}>{item.get('desc')}</p>
+              // 动态路由
+              <Link key={index} to={'/detail/' + item.get('id')}>
+                <div className={list.listItem}>
+                  <img src={item.get('imgUrl')} alt="" className={list.listPic}/>
+                  <div className={list.listInfo}>
+                    <h3 className={list.listTitle}>{item.get('title')}</h3>
+                    <p className={list.listDesc + ' ' +list.demo}>{item.get('desc')}</p>
+                  </div>
                 </div>
-              </div>
+              </Link>
+              
             )
           })
         }

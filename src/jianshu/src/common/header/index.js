@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom'
 import header from './header.css';
 import * as actionCreators from './store/actionCreator';
+import {actionCreators as loginActionCreators} from '../../pages/login/store';
 
 class Header extends Component{
 
@@ -52,15 +54,17 @@ class Header extends Component{
   }
 
   render(){
-    const {handleInputFocus,handleInputBlur,list} = this.props;
+    const {handleInputFocus,handleInputBlur,list,login,logout} = this.props;
     // console.log(this.props);
     return(
       <div className={header.headBox}>
         <a href="/" className={header.logo}></a>
         <div className={header.nav}>
-          <p className={header.active}>首页</p>
-          <p>下载App</p>
-          <p>登录</p>
+          <p className={header.active+' '+header.pLeft}>首页</p>
+          <p className={header.pLeft}>下载App</p>
+          {
+            login ? <p className={header.pRight} onClick={logout}>退出</p> : <Link to='/login'><p className={header.pRight}>登录</p></Link>
+          }
           <p><i className="iconfont">&#xe636;</i></p>
           <div className={header.searchBox}>
             <input 
@@ -74,10 +78,12 @@ class Header extends Component{
             {this.getSearchList()}
           </div>
           <div className={header.btnBox}>
-            <button className={header.writting}>
-              <i className="iconfont">&#xe670;</i>
-              写文章
-            </button>
+            <Link to='/write'>
+              <button className={header.writting}>
+                <i className="iconfont">&#xe670;</i>
+                写文章
+              </button>
+            </Link>
             <button className={header.reg}>注册</button>
           </div>
         </div>
@@ -102,6 +108,7 @@ const mapStateToProps = (state) => {
     page:state.header.get('page'),
     totalPage:state.header.get('totalPage'),
     mouseIn:state.header.get('mouseIn'),
+    login:state.login.get('login'),
   }
 }
 const mapDispatchToProps = (dispatch) => {
@@ -140,6 +147,10 @@ const mapDispatchToProps = (dispatch) => {
       }else{
         dispatch(actionCreators.changePage(1));
       }
+    },
+    logout(){
+      // 这个action在login文件夹下store文件夹下的actionCreators里
+      dispatch(loginActionCreators.logout());
     }
   }
 }

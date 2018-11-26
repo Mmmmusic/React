@@ -210,7 +210,7 @@ combineReaducers：拆分reducer为一个一个的小reducer分类,不会使redu
 immutable：数据格式统一管理,Facebook开发
 
 React重要的两点：
-	    01 react是面向数据编程,最难的地方在于reducer里的数据应该如何设计
+      01 react是面向数据编程,最难的地方在于reducer里的数据应该如何设计
 
       02 如果想改变react里的数据,要遵循redux的单向数据流的流程,
           首先要派发action给到store
@@ -220,5 +220,27 @@ React重要的两点：
           当数据发生变更
           页面就会自动跟着变化
 
+react-router-dom:
+      01 BrowserRouter 代表一个路由
 
+      02 Route 路由规则
+
+      03 Link 路由指向:
+                  <Link to='/'></Link>  
+
+      04 Redirect 路由重定向:
+                  <Redirect to='/'></Redirect>  
+
+      05 withRouter 获取路由信息:withRouter可以包装任何自定义组件,将react-router 的 history,location,match 三个对象传入。 当需要用的router属性的时候，将组件包一层withRouter，就可以拿到需要的路由信息
+                  export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Detail));
+
+      import {BrowserRouter,Route,Link,Redirect,withRouter} from 'react-router-dom'
+      <BrowserRouter>
+            <div>
+              <Header />
+              <Route path='/' exact component={Home}></Route>
+              <Route path='/login' exact component={Login}></Route>
+              <Route path='/detail/:id' exact component={Detail}></Route>
+            </div>
+      </BrowserRouter>
 

@@ -27,17 +27,18 @@
   font-size: 17px;
   color: #333333;
 }
-.nav p:nth-child(1){
+.nav .pLeft{
   float: left;
 }
-.nav p:nth-child(2){
-  float: left;
-}
-.nav p:nth-child(3){
+.nav .pRight{
   float: right;
   color: #969696;
 }
 .nav p:nth-child(4){
+  float: right;
+  color: #969696;
+}
+.nav p:nth-child(5){
   float: right;
   color: #969696;
 }
@@ -51,7 +52,7 @@
 .searchBox>i{
   position: absolute;
   right: 5px;
-  bottom: 4px;
+  bottom: 14px;
   width: 30px;
   line-height: 30px;
   border-radius: 15px;
@@ -112,6 +113,9 @@
 .writting{
   color: #ffffff;
   background-color: #ec6149;
+}
+.writting:active{
+  background-color: #e82d0d;
 }
 .writting i{
   margin-right: 2px;
