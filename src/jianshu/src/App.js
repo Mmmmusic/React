@@ -7,6 +7,7 @@ import Home from './pages/home';
 import Detail from './pages/detail/loadable.js';
 import Login from './pages/login';
 import Write from './pages/write';
+import './stactics/rem';
 import store from './store';
 
 class App extends Component {
