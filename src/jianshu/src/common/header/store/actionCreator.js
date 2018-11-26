@@ -1,4 +1,6 @@
+// 引入命名文件
 import * as constants from './actionTypes';
+// immutable 数据统一格式
 import {fromJS} from 'immutable';
 import axios from 'axios';
 
@@ -10,6 +12,7 @@ const changeList = (data) => ({
   totalPage:Math.ceil(data.length / 10)
 })
 
+// 转发index派发的action
 // 需要暴露出去,给别人用的
 export const searchFocus = () => ({
   type:constants.search_focus

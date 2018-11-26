@@ -46,6 +46,7 @@ class ShowList extends Component{
 
 }
 
+// 把store里的list数据映射到this.props上
 const mapStateToProps = (state) => {
   return {
     list:state.list

@@ -1,3 +1,4 @@
+// 引入命名文件
 import * as constants from './actionTypes';
 import {fromJS} from 'immutable';
 const defaultState = fromJS({

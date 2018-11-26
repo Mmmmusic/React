@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import {Provider} from 'react-redux';
 import {BrowserRouter,Route} from 'react-router-dom';
+// 公共组件
 import Header from './common/header/index';
+// 页面级组件
 import Home from './pages/home';
 // detail 是异步组件
 import Detail from './pages/detail/loadable.js';
 import Login from './pages/login';
 import Write from './pages/write';
-import './stactics/rem';
+// import './stactics/rem';
+// reducer仓库
 import store from './store';
 
 class App extends Component {

@@ -1,8 +1,11 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
+// 路由跳转
 import {Link} from 'react-router-dom'
 import header from './header.css';
+// 引入当前组件的状态树
 import * as actionCreators from './store/actionCreator';
+// 引入login页面的状态树
 import {actionCreators as loginActionCreators} from '../../pages/login/store';
 
 class Header extends Component{
@@ -99,7 +102,6 @@ class Header extends Component{
 
 const mapStateToProps = (state) => {
   return{
-    // a:state.header.get('a')
     // focused:state.getIn(['header','focused'])
 
     focused:state.header.get('focused'),

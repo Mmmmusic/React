@@ -96,7 +96,7 @@ const mapDispatchToProps = (dispatch) => {
     changeNameValue(e){
       // 需要做的事,创建一个action
       const action = getNameChangeAction(e.target.value);
-      // 用dispatch传递action
+      // 用dispatch传递action给reducer
       dispatch(action);
     },
     changeSexValue(e){

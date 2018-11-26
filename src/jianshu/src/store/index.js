@@ -6,6 +6,7 @@ import reducer from './reducer';
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(reducer,composeEnhancers(
+  // applyMiddleware方法主要是对redux的dispatch方法进行封装
   applyMiddleware(thunk)
 ));
 
