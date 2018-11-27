@@ -19,7 +19,7 @@ class Header extends Component{
       for(let i = ((page - 1) * 10);i < page * 10;i++){
         // console.log(jsList[i]);
         pageList.push(
-          <a href="###" key={jsList[i]}>{jsList[i]}</a>
+          <a href="###" key={jsList[i]}> {jsList[i]} </a>
         )
       }
     }
@@ -138,6 +138,7 @@ const mapDispatchToProps = (dispatch) => {
       // ref可以获取到组件渲染的真实DOM节点
       let originRotate = spinIcon.style.transform.replace(/[^0-9]/ig,'');
       if(originRotate){
+        // 转为十进制
         originRotate = parseInt(originRotate,10)
       }else{
         originRotate = 0;
