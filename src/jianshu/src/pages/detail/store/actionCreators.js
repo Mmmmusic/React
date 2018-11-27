@@ -9,6 +9,13 @@ const changeDetail = (title,content) => ({
 
 export const getDetail = (id) => {
   return(dispatch) => {
+    // axios({
+    //   method: 'get',
+    //   url: '/api/detail.json',
+    //   data: {
+    //     id: id,
+    //   }
+    // })
     axios.get('/api/detail.json?id='+id)
     .then((res)=>{
       const result = res.data.data;

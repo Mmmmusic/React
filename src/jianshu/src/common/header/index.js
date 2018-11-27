@@ -63,7 +63,7 @@ class Header extends Component{
       <div className={header.headBox}>
         <a href="/" className={header.logo}></a>
         <div className={header.nav}>
-          <p className={header.active+' '+header.pLeft}>首页</p>
+          <Link to='/person'><p className={header.active+' '+header.pLeft}>首页</p></Link>  
           <p className={header.pLeft}>下载App</p>
           {
             login ? <p className={header.pRight} onClick={logout}>退出</p> : <Link to='/login'><p className={header.pRight}>登录</p></Link>
