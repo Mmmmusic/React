@@ -15,7 +15,7 @@ function* maSaga() {
 function* getInitList() {
   // generator 捕获异常
   try {
-    const res = yield axios.get('./list.js');
+    const res = yield axios.get('/api/detail.json');
     const action = initListAction(res.data);
     yield put(action);
     console.log('请求成功',action);

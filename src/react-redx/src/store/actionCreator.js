@@ -1,34 +1,48 @@
-import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item, init_list_action,get_init_list } from "./actionTypes";
+// import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item, init_list_action,get_init_list } from "./actionTypes";
 import axios from 'axios';
 
+export const actionTypes = {
+  // 拆分action便于错误定位
+  iptNameVal : 'changeNameVal',
+  iptSexVal : 'changeSexVal',
+  iptAgeVal : 'changeAgeVal',
+  iptHobbyVal : 'changeHobbyVal',
+  add_msg_item : 'addMsg',
+  del_todo_item : 'delMsg',
+  // thunk
+  init_list_action : 'init_list_action',
+  // saga
+  get_init_list : 'get_init_list',
+}
+
 export const getNameChangeAction = (value) => ({
-  type:iptNameVal,
+  type:actionTypes.iptNameVal,
   value
 });
 export const getSexChangeAction = (value) => ({
-  type:iptSexVal,
+  type:actionTypes.iptSexVal,
   value
 });
 export const getAgeChangeAction = (value) => ({
-  type:iptAgeVal,
+  type:actionTypes.iptAgeVal,
   value
 });
 export const getHobbyChangeAction = (value) => ({
-  type:iptHobbyVal,
+  type:actionTypes.iptHobbyVal,
   value
 });
 
 export const getAddItemAction = () => ({
-  type:add_msg_item,
+  type:actionTypes.add_msg_item,
 });
 export const getDeleteItemAction = (index) => ({
-  type:del_todo_item,
+  type:actionTypes.del_todo_item,
   index
 });
 
 // thunk
 export const initListAction = (data) => ({
-  type:init_list_action,
+  type:actionTypes.init_list_action,
   data
 });
 
@@ -50,6 +64,6 @@ export const getTodoList = () => {
 
 // saga
 export const getInitList = () => ({
-  type:get_init_list,
+  type:actionTypes.get_init_list,
 })
 

@@ -1,11 +1,10 @@
 import {createStore,applyMiddleware,compose} from 'redux';
-// 引入redux中间件redux-thunk
 import reducer from './reducer';
-// import thunk from 'redux-thunk';
+import rootSaga from '../sagas/sagasGlobal';
 
 // 引入saga
 import createSagaMiddleware from 'redux-saga';
-import todoSagas from './sagas';
+// import todoSagas from './todoListSaga';
 
 // 创建saga中间件
 const sagaMiddleware = createSagaMiddleware()
@@ -30,6 +29,6 @@ const enhancer = composeEnhancers(applyMiddleware(sagaMiddleware));
 const store = createStore(reducer,enhancer);
 
 // 调用saga
-sagaMiddleware.run(todoSagas);
+sagaMiddleware.run(rootSaga);
 
 export default store;

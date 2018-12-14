@@ -1,5 +1,7 @@
-import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item,init_list_action } from "./actionTypes";
+// import { iptNameVal, iptSexVal, iptAgeVal, iptHobbyVal, add_msg_item, del_todo_item,init_list_action } from "./actionTypes";
+import {actionTypes} from './actionCreator';
 
+// store初始数据
 const data = {
   nameValue:'',
   sexValue:'',
@@ -22,28 +24,28 @@ const data = {
 }
 
 export default (state=data,action)=>{
-  if(action.type === iptNameVal){
+  if(action.type === actionTypes.iptNameVal){
     const newState = JSON.parse(JSON.stringify(state));
     newState.nameValue = action.value;
     return newState;
   }
-  if(action.type === iptSexVal){
+  if(action.type === actionTypes.iptSexVal){
     const newState = JSON.parse(JSON.stringify(state));
     newState.sexValue = action.value;
     return newState;
   }
-  if(action.type === iptAgeVal){
+  if(action.type === actionTypes.iptAgeVal){
     const newState = JSON.parse(JSON.stringify(state));
     newState.ageValue = action.value;
     return newState;
   }
-  if(action.type === iptHobbyVal){
+  if(action.type === actionTypes.iptHobbyVal){
     const newState = JSON.parse(JSON.stringify(state));
     newState.hobbyValue = action.value;
     return newState;
   }
 
-  if(action.type === add_msg_item){
+  if(action.type === actionTypes.add_msg_item){
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.unshift(
       {
@@ -59,14 +61,14 @@ export default (state=data,action)=>{
     newState.hobbyValue = '';
     return newState;
   }
-  if(action.type === del_todo_item){
+  if(action.type === actionTypes.del_todo_item){
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.splice(action.index,1);
     return newState;
   }
 
   // thunk
-  if(action.type === init_list_action){
+  if(action.type === actionTypes.init_list_action){
     const newState = JSON.parse(JSON.stringify(state));
     // newState.list.push(action.data);
     console.log(action.data);

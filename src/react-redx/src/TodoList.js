@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import {getNameChangeAction, getSexChangeAction,getAgeChangeAction,getHobbyChangeAction,getAddItemAction,getDeleteItemAction, getTodoList,getInitList} from './store/actionCreator';
 import './style.css';
 // import axios from 'axios';
-import store from './store'
+import store from './store';
 
 class TodoList extends Component{
 
@@ -90,6 +90,8 @@ const mapDispatchToProps = (dispatch) => {
       //   type:'changeNameVal',
       //   value:e.target.value
       // };
+
+      // 拆分上面步骤
       const action = getNameChangeAction(e.target.value);
       dispatch(action);
     },
